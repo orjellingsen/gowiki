@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GoWiki - {{.Title}}</title>
+    <title>GoWiki - Editing {{.Title}}</title>
+    <link rel="stylesheet" href="/public/normalize.css" />
+    <link rel="stylesheet" href="/public/style.css" />
 </head>
 <body>
-    <h1>Editing {{.Title}}</h1>
+    <header>
+        <h1>GoWiki</h1>
+        <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/view/about">About</a></li>
+        </ul>
+        <ul class="links">
+            <li>Github</li>
+        </ul>
+    </header>
 
-    <form action="/save/{{.Title}}" method="POST">
-        <div>
-            <textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea>
-        </div>
-        <div>
-            <input type="submit" value="Save"/>
-        </div>
-    </form>
+    <section>
+        <h1>Editing {{.Title}}</h1>
+
+        <form action="/save/{{.Title}}" method="POST">
+            <div>
+                <textarea name="body" rows="20" cols="80">{{printf "%s" .Body}}</textarea>
+            </div>
+            <div>
+                <input type="submit" value="Save"/>
+            </div>
+        </form>
+    </section>
 </body>
 </html>
