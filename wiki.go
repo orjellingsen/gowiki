@@ -38,7 +38,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func editHandler(w http.ResponseWriter, r *http.Request) {
-	title := r.URL.Path[len("/edit"):]
+	title := r.URL.Path[len("/edit/"):]
 	p, err := loadPage(title)
 	if err != nil {
 		p = &Page{Title: title}
@@ -48,7 +48,7 @@ func editHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/view/", viewHandler)
-	http.HandleFunc("/edit", editHandler)
+	http.HandleFunc("/edit/", editHandler)
 	//http.HandleFunc("/save", saveHandler)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
